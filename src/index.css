@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 15px;
+}
+
+body {
+  margin: 0;
+  background: #0a0a0f;
+  color: #f8fafc;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.dark .text-white,
+.dark .text-gray-200,
+.dark .text-gray-300 {
+  color: #ffffff;
+}
+
+.dark .text-gray-400,
+.dark .text-gray-500 {
+  color: #d1d5db;
+}
+
+.dark .bg-\[\#0A0A0F\],
+.dark .bg-\[\#09090B\] {
+  background-color: #09090b;
+}
+
+.light {
+  color-scheme: light;
+  background: #f6f8fb;
+  color: #0f172a;
+}
+
+.light .bg-\[\#0A0A0F\],
+.light .bg-\[\#09090B\],
+.light .bg-\[\#11161F\],
+.light .bg-\[\#10131A\],
+.light .bg-\[\#0F1117\] {
+  background-color: #f6f8fb;
+}
+
+.light .text-white,
+.light .text-gray-200,
+.light .text-gray-300 {
+  color: #0f172a;
+}
+
+.light .text-gray-400,
+.light .text-gray-500 {
+  color: #475569;
+}
+
+.light [class*="bg-white/"],
+.light [class*="bg-white\\["],
+.light .bg-black\/40 {
+  background-color: rgb(255 255 255 / 0.82);
+}
+
+.light [class*="border-white/"] {
+  border-color: rgb(15 23 42 / 0.12);
+}
+
+.light [class*="shadow-"] {
+  --tw-shadow-color: rgb(15 23 42 / 0.12);
+}
+
+.light header > div {
+  background-color: rgb(255 255 255 / 0.86);
+  border-color: rgb(15 23 42 / 0.12);
+}
+
+.light nav {
+  background-color: rgb(248 250 252 / 0.9);
+  border-color: rgb(15 23 42 / 0.1);
+}
+
+.light .backdrop-blur-xl,
+.light .backdrop-blur-2xl {
+  backdrop-filter: blur(24px);
+}
+
+.light .bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, rgb(255 255 255 / 0.96), rgb(248 250 252 / 0.82));
+}
+
+.light .bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, rgb(255 255 255 / 0.94), rgb(236 253 245 / 0.72), rgb(240 249 255 / 0.72));
+}
+
+.light .bg-gradient-to-t {
+  background-image: linear-gradient(to top, rgb(248 250 252 / 0.96), transparent, transparent);
+}
+
+.light .bg-emerald-500,
+.light .hover\:bg-emerald-500:hover {
+  background-color: #10b981;
+}
+
+.light .text-black {
+  color: #020617;
+}
+
+.light .theme-flip-hint {
+  background-color: rgb(255 255 255 / 0.94);
+  border-color: rgb(6 182 212 / 0.35);
+  box-shadow: 0 18px 50px rgb(15 23 42 / 0.16);
+}
+
+.light .theme-flip-hint .text-cyan-300 {
+  color: #0369a1;
+}
+
+.light .theme-flip-hint .text-gray-400 {
+  color: #334155;
+}
+
+.light .theme-flip-back {
+  background-color: rgb(255 255 255 / 0.96);
+  border-color: rgb(6 182 212 / 0.22);
+  box-shadow: 0 35px 90px rgb(15 23 42 / 0.18);
+}
+
+.light .theme-flip-back .text-white,
+.light .theme-flip-back .text-gray-200 {
+  color: #0f172a;
+}
+
+.light .theme-flip-back .text-cyan-300 {
+  color: #0369a1;
+}
+
+.light .theme-project-modal {
+  background-color: rgb(255 255 255 / 0.98);
+  border-color: rgb(15 23 42 / 0.14);
+  box-shadow: 0 40px 110px rgb(15 23 42 / 0.22);
+}
+
+.light .theme-project-modal .text-white,
+.light .theme-project-modal .text-gray-200,
+.light .theme-project-modal .text-gray-300 {
+  color: #0f172a;
+}
+
+.light .theme-project-modal .text-gray-400,
+.light .theme-project-modal .text-gray-500 {
+  color: #475569;
+}
+
+.light .theme-project-modal .text-emerald-300,
+.light .theme-project-modal .text-emerald-400 {
+  color: #047857;
+}
+
+.light .theme-project-modal .text-cyan-300,
+.light .theme-project-modal .text-cyan-400 {
+  color: #0369a1;
+}
