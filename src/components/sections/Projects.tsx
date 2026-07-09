@@ -110,38 +110,43 @@ function Projects() {
 
   {/* ================= Project Banner ================= */}
 
-<div className="relative overflow-hidden">
+<div className="relative overflow-hidden bg-black/30 dark:bg-black/50">
 
   <img
     src={project.image}
     alt={project.title}
     className="
-      h-56
       w-full
+      h-auto
+      aspect-video
       object-cover
       transition-transform
       duration-700
-      group-hover:scale-105
+      sm:group-hover:scale-105
     "
   />
 
   {/* Gradient Overlay */}
 
-  <div className="absolute inset-0 bg-gradient-to-t from-[#17171f] via-transparent to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-t from-[#17171f] via-transparent to-transparent dark:from-black/60 light:from-black/40" />
 
 </div>
 
 {/* ================= Card Content ================= */}
-<div className="mb-5">
+<div className="mb-4 px-6 pt-4 sm:mb-5 sm:px-8 sm:pt-6">
 
   <span
     className="
       rounded-full
       bg-emerald-500/20
+      dark:bg-emerald-500/20
+      light:bg-emerald-100
       px-3
       py-1
       text-sm
       text-emerald-400
+      dark:text-emerald-300
+      light:text-emerald-700
     "
   >
     {project.type}
@@ -158,6 +163,8 @@ font-bold
 min-h-[80px]
 tracking-tight
 text-white
+dark:text-white
+light:text-gray-900
 "
 >
     {project.title}
@@ -174,6 +181,8 @@ text-white
       font-semibold
       tracking-[0.15em]
       text-cyan-300
+      dark:text-cyan-300
+      light:text-cyan-700
     "
   >
     Overview
@@ -183,6 +192,8 @@ text-white
     className="
       leading-7
       text-gray-400
+      dark:text-gray-400
+      light:text-gray-600
     "
   >
     {project.problem}
@@ -218,8 +229,12 @@ text-white
 
           border
           border-white/10
+          dark:border-white/10
+          light:border-gray-300
 
           bg-white/[0.05]
+          dark:bg-white/[0.05]
+          light:bg-gray-100
 
           px-3.5
           py-1.5
@@ -228,11 +243,14 @@ text-white
           font-medium
 
           text-gray-300
+          dark:text-gray-300
+          light:text-gray-700
 
           transition
 
-          group-hover:border-emerald-500/30
-          group-hover:text-white
+          sm:group-hover:border-emerald-500/30
+          sm:group-hover:text-white
+          light:sm:group-hover:text-emerald-700
         "
       >
         {tech}
@@ -282,8 +300,12 @@ text-white
 
             border
             border-emerald-500/20
+            dark:border-emerald-500/20
+            light:border-emerald-700/30
 
             bg-emerald-500/10
+            dark:bg-emerald-500/10
+            light:bg-emerald-100
 
             px-3
             py-1.5
@@ -292,6 +314,8 @@ text-white
             font-medium
 
             text-emerald-300
+            dark:text-emerald-300
+            light:text-emerald-700
           "
         >
           {step}
@@ -302,6 +326,8 @@ text-white
           <span
             className="
               text-cyan-400
+              dark:text-cyan-400
+              light:text-cyan-700
               font-bold
             "
           >
@@ -329,6 +355,8 @@ text-white
       font-semibold
       tracking-[0.15em]
       text-cyan-300
+      dark:text-cyan-300
+      light:text-cyan-700
     "
   >
     Key Features
@@ -346,6 +374,8 @@ text-white
           gap-3
 
           text-gray-300
+          dark:text-gray-300
+          light:text-gray-700
           leading-6
         "
       >
@@ -364,11 +394,15 @@ text-white
             rounded-full
 
             bg-emerald-500/10
+            dark:bg-emerald-500/10
+            light:bg-emerald-100
 
             text-xs
             font-bold
 
             text-emerald-400
+            dark:text-emerald-400
+            light:text-emerald-700
           "
         >
         ●
@@ -415,10 +449,10 @@ text-white
     transition-all
     duration-300
 
-    hover:scale-[1.02]
-    hover:border-emerald-400
-    hover:bg-emerald-500
-    hover:text-black
+    sm:hover:scale-[1.02]
+    sm:hover:border-emerald-400
+    sm:hover:bg-emerald-500
+    sm:hover:text-black
   "
 >
   <span>Open Case Study</span>
@@ -427,7 +461,7 @@ text-white
     className="
       transition-transform
       duration-300
-      group-hover:translate-x-2
+      sm:group-hover:translate-x-2
     "
   >
     →
