@@ -1,14 +1,44 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState, type TouchEvent } from "react";
 import { certificates } from "../../data/certificates";
 
 function VerifiedLearning() {
   const [activeId, setActiveId] = useState<number>(certificates[0]?.id ?? 1);
+  const touchStartX = useRef<number | null>(null);
 
   const activeCertificate = useMemo(
     () => certificates.find((certificate) => certificate.id === activeId) ?? certificates[0],
     [activeId],
   );
+
+  const activeIndex = certificates.findIndex((certificate) => certificate.id === activeId);
+  const currentIndex = activeIndex === -1 ? 0 : activeIndex;
+  const nextCertificate = certificates[(currentIndex + 1) % certificates.length];
+  const previousCertificate = certificates[(currentIndex - 1 + certificates.length) % certificates.length];
+
+  const handleNext = () => setActiveId(nextCertificate.id);
+  const handlePrevious = () => setActiveId(previousCertificate.id);
+
+  const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = event.touches[0]?.clientX ?? null;
+  };
+
+  const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null) return;
+    const endX = event.changedTouches[0]?.clientX ?? null;
+    if (endX === null) return;
+
+    const delta = touchStartX.current - endX;
+    const threshold = 50;
+
+    if (Math.abs(delta) < threshold) return;
+    if (delta > 0) {
+      handleNext();
+    } else {
+      handlePrevious();
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <section id="certifications" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:py-20">
@@ -89,102 +119,125 @@ function VerifiedLearning() {
           </div>
 
           <div className="w-full lg:w-[70%]">
-            <AnimatePresence mode="wait">
-              {activeCertificate && (
-                <motion.div
-                  key={activeCertificate.id}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35 }}
-                  className="space-y-6"
-                >
+            <div
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              className="rounded-[24px] border border-transparent bg-transparent"
+            >
+              <AnimatePresence mode="wait">
+                {activeCertificate && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    key={activeCertificate.id}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.35 }}
-                    className="overflow-hidden rounded-[24px] border border-white/60 bg-slate-100/80 p-2 shadow-inner dark:border-white/10 dark:bg-slate-900/70"
+                    className="space-y-6"
                   >
-                    <motion.img
-                      src={activeCertificate.image}
-                      alt={activeCertificate.title}
-                      whileHover={{ scale: 1.015 }}
-                      transition={{ duration: 0.25 }}
-                      className="h-56 w-full rounded-[18px] object-cover object-center sm:h-72"
-                    />
-                  </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.35 }}
+                      className="overflow-hidden rounded-[24px] border border-white/60 bg-slate-100/80 p-2 shadow-inner dark:border-white/10 dark:bg-slate-900/70"
+                    >
+                      <motion.img
+                        src={activeCertificate.image}
+                        alt={activeCertificate.title}
+                        whileHover={{ scale: 1.015 }}
+                        transition={{ duration: 0.25 }}
+                        className="h-56 w-full rounded-[18px] object-cover object-center sm:h-72"
+                      />
+                    </motion.div>
 
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-sm font-medium text-emerald-600 dark:text-emerald-400">
-                      {activeCertificate.platform}
-                    </span>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                      Issued {activeCertificate.date}
-                    </span>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                      • {activeCertificate.level}
-                    </span>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                      • {activeCertificate.duration}
-                    </span>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                        {activeCertificate.title}
-                      </h3>
-                      <p className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-400">
-                        {activeCertificate.description}
-                      </p>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                        {activeCertificate.platform}
+                      </span>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                        Issued {activeCertificate.date}
+                      </span>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                        • {activeCertificate.level}
+                      </span>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                        • {activeCertificate.duration}
+                      </span>
                     </div>
 
-                    <div className="grid gap-4 md:grid-cols-2">
+                    <div className="space-y-4">
                       <div>
-                        <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-500">
-                          Skills Covered
-                        </h4>
-                        <ul className="mt-3 space-y-3">
-                          {activeCertificate.skills.map((skill, index) => (
-                            <motion.li
-                              key={skill}
-                              initial={{ opacity: 0, x: -8 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.25, delay: index * 0.04 }}
-                              className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300"
-                            >
-                              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/10 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                                ✓
-                              </span>
-                              <span>{skill}</span>
-                            </motion.li>
-                          ))}
-                        </ul>
+                        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                          {activeCertificate.title}
+                        </h3>
+                        <p className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-400">
+                          {activeCertificate.description}
+                        </p>
                       </div>
 
-                      <div className="rounded-[24px] border border-white/60 bg-white/70 p-5 shadow-sm dark:border-white/10 dark:bg-slate-900/60">
-                        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
-                          Verification
-                        </p>
-                        <a
-                          href={activeCertificate.credential}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="group mt-3 inline-flex items-center gap-2 text-base font-medium text-emerald-600 underline decoration-emerald-400/40 underline-offset-4 transition-all duration-300 hover:text-emerald-500 dark:text-emerald-400"
-                        >
-                          <span className="group-hover:translate-x-0.5 transition-transform duration-300">
-                            Credential ↗
-                          </span>
-                        </a>
-                        <p className="mt-4 text-sm leading-7 text-gray-600 dark:text-gray-400">
-                          Issued by {activeCertificate.issuer} and verified through the official platform.
-                        </p>
+                      <div className="grid gap-4 md:grid-cols-2">
+                        <div>
+                          <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-500">
+                            Skills Covered
+                          </h4>
+                          <ul className="mt-3 space-y-3">
+                            {activeCertificate.skills.map((skill, index) => (
+                              <motion.li
+                                key={skill}
+                                initial={{ opacity: 0, x: -8 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.25, delay: index * 0.04 }}
+                                className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300"
+                              >
+                                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/10 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                                  ✓
+                                </span>
+                                <span>{skill}</span>
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="rounded-[24px] border border-white/60 bg-white/70 p-5 shadow-sm dark:border-white/10 dark:bg-slate-900/60">
+                          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
+                            Verification
+                          </p>
+                          <a
+                            href={activeCertificate.credential}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group mt-3 inline-flex items-center gap-2 text-base font-medium text-emerald-600 underline decoration-emerald-400/40 underline-offset-4 transition-all duration-300 hover:text-emerald-500 dark:text-emerald-400"
+                          >
+                            <span className="group-hover:translate-x-0.5 transition-transform duration-300">
+                              Credential ↗
+                            </span>
+                          </a>
+                          <p className="mt-4 text-sm leading-7 text-gray-600 dark:text-gray-400">
+                            Issued by {activeCertificate.issuer} and verified through the official platform.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <div className="mt-6 flex flex-wrap items-center justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={handlePrevious}
+                  className="rounded-full border border-gray-200 bg-white/80 px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-100 dark:border-white/10 dark:bg-slate-900/70 dark:text-gray-200 dark:hover:bg-slate-800"
+                >
+                  Previous
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-600 dark:bg-emerald-400 dark:text-slate-900 dark:hover:bg-emerald-300"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </motion.div>

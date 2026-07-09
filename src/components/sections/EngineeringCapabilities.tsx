@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState, type TouchEvent } from "react";
 import { capabilities } from "../../data/capabilities";
 
 const suitabilityMap: Record<number, string[]> = {
@@ -13,11 +13,41 @@ const suitabilityMap: Record<number, string[]> = {
 
 function EngineeringCapabilities() {
   const [activeId, setActiveId] = useState<number>(capabilities[0]?.id ?? 1);
+  const touchStartX = useRef<number | null>(null);
 
   const activeCapability = useMemo(
     () => capabilities.find((capability) => capability.id === activeId) ?? capabilities[0],
     [activeId],
   );
+
+  const activeIndex = capabilities.findIndex((capability) => capability.id === activeId);
+  const currentIndex = activeIndex === -1 ? 0 : activeIndex;
+  const nextCapability = capabilities[(currentIndex + 1) % capabilities.length];
+  const previousCapability = capabilities[(currentIndex - 1 + capabilities.length) % capabilities.length];
+
+  const handleNext = () => setActiveId(nextCapability.id);
+  const handlePrevious = () => setActiveId(previousCapability.id);
+
+  const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = event.touches[0]?.clientX ?? null;
+  };
+
+  const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null) return;
+    const endX = event.changedTouches[0]?.clientX ?? null;
+    if (endX === null) return;
+
+    const delta = touchStartX.current - endX;
+    const threshold = 50;
+
+    if (Math.abs(delta) < threshold) return;
+    if (delta > 0) {
+      handleNext();
+    } else {
+      handlePrevious();
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <section id="services" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:py-20">
@@ -155,7 +185,24 @@ function EngineeringCapabilities() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 lg:hidden">
+        <div className="hidden lg:flex mt-6 flex-wrap items-center justify-end gap-3">
+          <button
+            type="button"
+            onClick={handlePrevious}
+            className="rounded-full border border-gray-200 bg-white/80 px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-100 dark:border-white/10 dark:bg-slate-900/70 dark:text-gray-200 dark:hover:bg-slate-800"
+          >
+            Previous
+          </button>
+          <button
+            type="button"
+            onClick={handleNext}
+            className="rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-600 dark:bg-emerald-400 dark:text-slate-900 dark:hover:bg-emerald-300"
+          >
+            Next
+          </button>
+        </div>
+
+        <div className="flex flex-col gap-4 lg:hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           <div className="flex justify-start gap-2 overflow-x-auto pb-1">
             {capabilities.map((capability) => {
               const isActive = capability.id === activeId;
@@ -238,6 +285,23 @@ function EngineeringCapabilities() {
               </motion.div>
             )}
           </AnimatePresence>
+
+          <div className="flex flex-wrap justify-center gap-3 rounded-[24px] border border-gray-200/70 bg-white/80 p-4 dark:border-white/10 dark:bg-slate-950/60 lg:hidden">
+            <button
+              type="button"
+              onClick={handlePrevious}
+              className="w-full rounded-full border border-gray-200 bg-white/90 px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-100 dark:border-white/10 dark:bg-slate-900/80 dark:text-gray-200 dark:hover:bg-slate-800 sm:w-auto"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              className="w-full rounded-full bg-emerald-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-emerald-600 dark:bg-emerald-400 dark:text-slate-900 dark:hover:bg-emerald-300 sm:w-auto"
+            >
+              Next
+            </button>
+          </div>
         </div>
       </motion.div>
     </section>
