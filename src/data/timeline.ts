@@ -9,7 +9,7 @@ export const timeline = [
 
   {
     year: "Jan 2023",
-    title: "IoT Intern",
+    title: "IoT Applications Intern",
     company: "Marcello Tech",
     description:
       "Worked on IoT-based solutions and sensor integration for real-world applications.",
@@ -32,7 +32,7 @@ export const timeline = [
   },
 
   {
-    year: "2025 - Present",
+    year: "2026 - Present",
     title: "Continuous Learning",
     company: "System Design & LLD",
     description:
