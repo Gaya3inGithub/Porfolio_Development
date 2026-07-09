@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { learning } from "../../data/learning";
 
 function Learning() {
@@ -19,9 +20,14 @@ function Learning() {
       </div>
 
       <div className="mt-10 grid gap-8 md:grid-cols-2">
-        {learning.map((item) => (
-          <div
+        {learning.map((item, index) => (
+          <motion.div
             key={item.title}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileTap={{ y: -8 }}
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
             className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition sm:hover:border-emerald-500"
           >
             <div className="flex items-center justify-between">
@@ -37,7 +43,7 @@ function Learning() {
             <p className="mt-6 leading-8 text-gray-400">
               {item.description}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

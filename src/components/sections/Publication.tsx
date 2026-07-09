@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { publication } from "../../data/publication";
 import { FaBookOpen, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -18,7 +19,14 @@ function Publication() {
         </h2>
       </div>
 
-      <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 lg:p-10 backdrop-blur-xl">
+      <motion.div 
+        className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 lg:p-10 backdrop-blur-xl"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileTap={{ y: -8 }}
+        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
           <div>
             <div className="flex items-center gap-4">
@@ -100,7 +108,7 @@ function Publication() {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

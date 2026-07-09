@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { timeline } from "../../data/timeline";
 
 function Timeline() {
@@ -17,7 +18,15 @@ function Timeline() {
 
       <div className="relative mt-12 border-l-2 border-emerald-500/30 pl-10">
         {timeline.map((item, index) => (
-          <div key={index} className="relative mb-12 last:mb-0">
+          <motion.div 
+            key={index} 
+            className="relative mb-12 last:mb-0"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            whileTap={{ x: 10 }}
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+          >
             <div className="absolute -left-[49px] h-5 w-5 rounded-full bg-emerald-400"></div>
 
             <p className="text-sm text-emerald-400">
@@ -35,7 +44,7 @@ function Timeline() {
             <p className="mt-3 max-w-3xl leading-8 text-gray-400">
               {item.description}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

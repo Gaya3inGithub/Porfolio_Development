@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   FaJava,
   FaDatabase,
@@ -46,9 +47,14 @@ function RecruiterSnapshot() {
       </p>
 
       <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-        {highlights.map((item) => (
-          <div
+        {highlights.map((item, index) => (
+          <motion.div
             key={item.title}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileTap={{ y: -8 }}
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
             className="rounded-3xl border border-white/10 bg-white/5 p-8 transition duration-300 sm:hover:-translate-y-2 sm:hover:border-emerald-500"
           >
             <div className="mb-6 text-emerald-400">
@@ -62,7 +68,7 @@ function RecruiterSnapshot() {
             <p className="leading-7 text-gray-400">
               {item.description}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

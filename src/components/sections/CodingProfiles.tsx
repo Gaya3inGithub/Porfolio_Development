@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { profiles } from "../../data/profiles";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
@@ -20,9 +21,14 @@ function CodingProfiles() {
       </div>
 
       <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-        {profiles.map((profile) => (
-          <div
+        {profiles.map((profile, index) => (
+          <motion.div
             key={profile.name}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileTap={{ y: -8 }}
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
             className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition sm:hover:-translate-y-2 sm:hover:border-emerald-500"
           >
             <h3 className="text-2xl font-bold text-white">
@@ -46,7 +52,7 @@ function CodingProfiles() {
               Visit Profile
               <FaExternalLinkAlt size={14} />
             </a>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

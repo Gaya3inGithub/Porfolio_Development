@@ -716,8 +716,8 @@ duration-500
 
 shadow-[0_60px_150px_rgba(16,185,129,.18)]
 
-hover:scale-[1.01]
-hover:shadow-[0_70px_170px_rgba(6,182,212,.25)]
+sm:hover:scale-[1.01]
+sm:hover:shadow-[0_70px_170px_rgba(6,182,212,.25)]
 "
     />
 

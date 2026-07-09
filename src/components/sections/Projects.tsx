@@ -1,6 +1,7 @@
 import { projects } from "../../data/projects";
 import type { Project } from "../../data/projects";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import ProjectModal from "./ProjectModal";
 function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -68,9 +69,14 @@ function Projects() {
         "
       >
 
-        {projects.map((project) => (
-  <article
+        {projects.map((project, index) => (
+  <motion.article
     key={project.id}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    whileTap={{ y: -8 }}
+    viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
     className="
       group
 
@@ -428,7 +434,7 @@ text-white
   </span>
 </button>
             </div>
-            </article>
+            </motion.article>
         ))}
       </div>
       <ProjectModal
