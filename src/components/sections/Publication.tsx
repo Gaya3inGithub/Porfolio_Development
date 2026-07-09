@@ -102,9 +102,6 @@ function Publication() {
                       }}
                     />
                   ) : null}
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-black/20 to-black/40 pointer-events-none">
-                    <FaBookOpen className="text-5xl sm:text-6xl text-emerald-400" />
-                  </div>
                 </div>
               </div>
 
