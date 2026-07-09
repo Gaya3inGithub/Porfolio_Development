@@ -94,9 +94,9 @@ function Projects() {
       transition-all
       duration-500
 
-      hover:-translate-y-2
-      hover:border-emerald-500/40
-      hover:shadow-[0_25px_80px_rgba(16,185,129,.15)]
+      sm:hover:-translate-y-2
+      sm:hover:border-emerald-500/40
+      sm:hover:shadow-[0_25px_80px_rgba(16,185,129,.15)]
     "
   >
           

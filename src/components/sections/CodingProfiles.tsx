@@ -23,7 +23,7 @@ function CodingProfiles() {
         {profiles.map((profile) => (
           <div
             key={profile.name}
-            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:-translate-y-2 hover:border-emerald-500"
+            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition sm:hover:-translate-y-2 sm:hover:border-emerald-500"
           >
             <h3 className="text-2xl font-bold text-white">
               {profile.name}
@@ -41,7 +41,7 @@ function CodingProfiles() {
               href={profile.url}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl border border-emerald-500 px-5 py-3 text-emerald-400 transition hover:bg-emerald-500 hover:text-black"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl border border-emerald-500 px-5 py-3 text-emerald-400 transition sm:hover:bg-emerald-500 sm:hover:text-black"
             >
               Visit Profile
               <FaExternalLinkAlt size={14} />

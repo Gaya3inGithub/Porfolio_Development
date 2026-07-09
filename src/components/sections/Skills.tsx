@@ -109,8 +109,13 @@ function Skills() {
                 y: 0,
               }}
 
+              whileTap={{
+                y: -8,
+              }}
+
               viewport={{
                 once: true,
+                margin: "0px 0px -100px 0px",
               }}
 
               transition={{
@@ -135,16 +140,16 @@ function Skills() {
                 transition-all
                 duration-500
 
-                hover:-translate-y-2
+                sm:hover:-translate-y-2
 
-                hover:shadow-[0_25px_70px_rgba(16,185,129,.15)]
+                sm:hover:shadow-[0_25px_70px_rgba(16,185,129,.15)]
                 border-gray-200
                 bg-white/70
 
                 dark:border-white/10
                 dark:bg-white/[0.04]
 
-                hover:border-emerald-500/40
+                sm:hover:border-emerald-500/40
               "
             >
 
@@ -179,9 +184,9 @@ function Skills() {
                     transition-all
                     duration-500
 
-                    group-hover:rotate-6
-                    group-hover:scale-110
-                    group-hover:bg-emerald-500/20
+                    sm:group-hover:rotate-6
+                    sm:group-hover:scale-110
+                    sm:group-hover:bg-emerald-500/20
                   "
                 >
                   <Icon size={28} />
@@ -254,7 +259,7 @@ function Skills() {
                       }}
 
                       whileTap={{
-                        scale: 1.06,
+                        scale: 0.98,
                       }}
 
                       transition={{
@@ -287,15 +292,15 @@ function Skills() {
                         dark:bg-white/[0.05]
                         dark:text-gray-300
 
-                        group-hover:border-emerald-500/20
+                        sm:group-hover:border-emerald-500/20
 
-                        hover:border-emerald-500/40
+                        sm:hover:border-emerald-500/40
 
-                        hover:bg-emerald-500/10
+                        sm:hover:bg-emerald-500/10
 
-                        hover:text-emerald-400
+                        sm:hover:text-emerald-400
 
-                        hover:shadow-[0_0_18px_rgba(16,185,129,.18)]
+                        sm:hover:shadow-[0_0_18px_rgba(16,185,129,.18)]
                       "
                     >
                       {item}

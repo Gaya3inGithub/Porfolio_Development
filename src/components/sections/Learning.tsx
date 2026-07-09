@@ -22,7 +22,7 @@ function Learning() {
         {learning.map((item) => (
           <div
             key={item.title}
-            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:border-emerald-500"
+            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition sm:hover:border-emerald-500"
           >
             <div className="flex items-center justify-between">
               <h3 className="text-2xl font-bold text-white">

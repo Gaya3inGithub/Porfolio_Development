@@ -458,9 +458,9 @@ lg:gap-6
       w-full
       sm:w-auto
       min-w-[210px]
-      hover:-translate-y-1
-      hover:scale-105
-      hover:shadow-emerald-500/50
+      sm:hover:-translate-y-1
+      sm:hover:scale-105
+      sm:hover:shadow-emerald-500/50
     "
   >
     <MdOutlineFileDownload className="text-xl" />

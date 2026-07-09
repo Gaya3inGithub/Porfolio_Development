@@ -135,14 +135,14 @@ function ProjectModal({
                 transition-all
                 duration-300
 
-                hover:scale-110
-                hover:rotate-90
+                sm:hover:scale-110
+                sm:hover:rotate-90
 
-                hover:border-emerald-400/40
-                hover:bg-emerald-500/10
-                hover:text-emerald-300
+                sm:hover:border-emerald-400/40
+                sm:hover:bg-emerald-500/10
+                sm:hover:text-emerald-300
 
-                hover:shadow-[0_0_25px_rgba(16,185,129,.35)]
+                sm:hover:shadow-[0_0_25px_rgba(16,185,129,.35)]
               "
             >
               <IoClose size={24} />
@@ -358,8 +358,8 @@ function ProjectModal({
               transition-all
               duration-300
 
-              hover:border-emerald-500/30
-              hover:bg-white/[0.05]
+              sm:hover:border-emerald-500/30
+              sm:hover:bg-white/[0.05]
             "
           >
 
@@ -455,9 +455,9 @@ function ProjectModal({
             transition-all
             duration-300
 
-            hover:-translate-y-1
-            hover:border-emerald-500/30
-            hover:bg-white/[0.05]
+            sm:hover:-translate-y-1
+            sm:hover:border-emerald-500/30
+            sm:hover:bg-white/[0.05]
           "
         >
 

@@ -113,7 +113,7 @@ function Contact() {
 
           <a
             href="mailto:tgayathri31122002@gmail.com"
-            className="mt-10 inline-block rounded-full bg-emerald-500 px-8 py-4 font-semibold text-black transition hover:scale-105"
+            className="mt-10 inline-block rounded-full bg-emerald-500 px-8 py-4 font-semibold text-black transition sm:hover:scale-105"
           >
             Send Email
           </a>

@@ -76,7 +76,7 @@ function Publication() {
               target="_blank"
               rel="noopener noreferrer"
               title="Open publication in a new tab"
-              className="group w-full max-w-md rounded-2xl overflow-hidden border border-white/6 bg-black/30 hover:scale-[1.01] transition-all duration-200"
+              className="group w-full max-w-md rounded-2xl overflow-hidden border border-white/6 bg-black/30 sm:hover:scale-[1.01] transition-all duration-200"
             >
               <div className="w-full h-48 sm:h-60 lg:h-72 overflow-hidden">
                 {image ? (
