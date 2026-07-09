@@ -1,10 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useMemo, useRef, useState, type TouchEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type TouchEvent } from "react";
 import { certificates } from "../../data/certificates";
 
 function VerifiedLearning() {
   const [activeId, setActiveId] = useState<number>(certificates[0]?.id ?? 1);
   const touchStartX = useRef<number | null>(null);
+  const navRef = useRef<HTMLDivElement | null>(null);
+  const buttonRefs = useRef<Record<number, HTMLButtonElement | null>>({});
 
   const activeCertificate = useMemo(
     () => certificates.find((certificate) => certificate.id === activeId) ?? certificates[0],
@@ -40,6 +42,17 @@ function VerifiedLearning() {
     touchStartX.current = null;
   };
 
+  useEffect(() => {
+    const el = buttonRefs.current[activeId];
+    if (!el || !navRef.current) return;
+
+    try {
+      el.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    } catch {
+      // ignore scroll errors
+    }
+  }, [activeId]);
+
   return (
     <section id="certifications" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:py-20">
       <motion.div
@@ -70,7 +83,7 @@ function VerifiedLearning() {
       >
         <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
           <div className="w-full lg:w-[30%] lg:shrink-0">
-            <div className="flex justify-start gap-3 overflow-x-auto pb-2 lg:flex-col lg:justify-center lg:gap-3 lg:overflow-visible lg:pb-0">
+            <div ref={navRef} className="flex justify-start gap-3 overflow-x-auto pb-2 lg:flex-col lg:justify-center lg:gap-3 lg:overflow-visible lg:pb-0">
               {certificates.map((certificate) => {
                 const isActive = certificate.id === activeId;
 
@@ -81,6 +94,7 @@ function VerifiedLearning() {
                     aria-label={`Show ${certificate.title} certification`}
                     aria-selected={isActive}
                     onClick={() => setActiveId(certificate.id)}
+                    ref={(el) => { buttonRefs.current[certificate.id] = el; }}
                     className={`group flex min-w-max shrink-0 items-center gap-3 rounded-full border px-4 py-3 text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 lg:mx-auto lg:w-full lg:rounded-2xl lg:border-white/50 lg:px-4 lg:py-4 dark:lg:border-white/10 ${
                       isActive
                         ? "border-emerald-500/40 bg-emerald-500/10 shadow-[0_10px_30px_rgba(16,185,129,0.15)] lg:border-emerald-500/40 lg:bg-emerald-500/10"

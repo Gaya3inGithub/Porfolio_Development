@@ -35,7 +35,7 @@ function Contact() {
           <div className="space-y-6">
 
             <div className="flex items-center gap-4">
-              <FaEnvelope className="text-emerald-400 text-xl" />
+              <FaEnvelope className="shrink-0 text-emerald-400 text-2xl" />
               <a
                 href="mailto:tgayathri31122002@gmail.com"
                 className="text-gray-300 hover:text-emerald-300"
@@ -45,7 +45,7 @@ function Contact() {
             </div>
 
             <div className="flex items-center gap-4">
-              <FaPhone className="text-emerald-400 text-xl" />
+              <FaPhone className="shrink-0 text-emerald-400 text-xl" />
               <a
                 href="tel:+919786177761"
                 className="text-gray-300 hover:text-emerald-300"
@@ -55,7 +55,7 @@ function Contact() {
             </div>
 
             <div className="flex items-center gap-4">
-              <FaWhatsapp className="text-emerald-400 text-xl" />
+              <FaWhatsapp className="shrink-0 text-emerald-400 text-xl" />
               <a
                 href="https://wa.me/919786177761"
                 target="_blank"
@@ -67,14 +67,14 @@ function Contact() {
             </div>
 
             <div className="flex items-center gap-4">
-              <FaMapMarkerAlt className="text-emerald-400 text-xl" />
+              <FaMapMarkerAlt className="shrink-0 text-emerald-400 text-xl" />
               <span className="text-gray-300">
                 Chennai, Tamil Nadu, India
               </span>
             </div>
 
             <div className="flex items-center gap-4">
-              <FaLinkedin className="text-emerald-400 text-xl" />
+              <FaLinkedin className="shrink-0 text-emerald-400 text-xl" />
               <a
                 href="https://linkedin.com/in/gayathri-t-20223921a"
                 target="_blank"
@@ -86,7 +86,7 @@ function Contact() {
             </div>
 
             <div className="flex items-center gap-4">
-              <FaGithub className="text-emerald-400 text-xl" />
+              <FaGithub className="shrink-0 text-emerald-400 text-xl" />
               <a
                 href="https://github.com/Gaya3inGithub"
                 target="_blank"
