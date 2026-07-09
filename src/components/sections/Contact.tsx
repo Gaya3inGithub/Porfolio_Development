@@ -28,9 +28,9 @@ function Contact() {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-8 md:grid-cols-2">
+      <div className="mt-10 flex flex-col items-center gap-8 md:grid md:grid-cols-2 md:items-stretch">
 
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+        <div className="w-full max-w-[520px] rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
 
           <div className="space-y-6">
 
@@ -101,7 +101,7 @@ function Contact() {
 
         </div>
 
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+        <div className="w-full max-w-[520px] rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
 
           <h3 className="text-2xl font-bold text-white">
             Quick Message

@@ -8,7 +8,8 @@ import Skills from "./components/sections/Skills";
 import Timeline from "./components/sections/Timeline";
 import CodingProfiles from "./components/sections/CodingProfiles";
 import Publication from "./components/sections/Publication";
-import Learning from "./components/sections/Learning";
+import VerifiedLearning from "./components/sections/VerifiedLearning";
+import EngineeringCapabilities from "./components/sections/EngineeringCapabilities";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
 
@@ -47,7 +48,8 @@ function App() {
       <Timeline />
       <CodingProfiles />
       <Publication />
-      <Learning />
+      <VerifiedLearning />
+      <EngineeringCapabilities />
       <Contact />
       <Footer />
     </div>

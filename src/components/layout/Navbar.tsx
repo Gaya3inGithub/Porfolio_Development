@@ -9,6 +9,8 @@ const navItems = [
   { id: "skills", label: "Skills" },
   { id: "journey", label: "Journey" },
   { id: "publication", label: "Publication" },
+  { id: "certifications", label: "Certifications" },
+  { id: "services", label: "Services" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -44,6 +46,9 @@ export default function Navbar({
       // If user is interacting with the nav (mouse over), suspend auto-activation.
       if (suspendScrollRef.current) return;
 
+      let closestId = "home";
+      let closestDistance = Number.POSITIVE_INFINITY;
+
       navItems.forEach((item) => {
 
         const section = document.getElementById(item.id);
@@ -51,13 +56,17 @@ export default function Navbar({
         if (!section) return;
 
         const rect = section.getBoundingClientRect();
-
         const middle = window.innerHeight * 0.35;
+        const midpoint = rect.top + rect.height / 2;
+        const distance = Math.abs(midpoint - middle);
 
-        if (rect.top <= middle && rect.bottom >= middle) {
-          setActive(item.id);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestId = item.id;
         }
       });
+
+      setActive(closestId);
 
     };
 
@@ -152,7 +161,7 @@ export default function Navbar({
 
             {/* ================= Left ================= */}
 
-            <div className="flex min-w-0 items-center gap-2 sm:gap-4">
+            <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3 lg:gap-3">
 
               <motion.button
                 whileHover={{
@@ -169,10 +178,12 @@ export default function Navbar({
                   src={profile}
                   alt="Gayathri"
                   className="
-                    h-11
-                    w-11
-                    sm:h-[52px]
-                    sm:w-[52px]
+                    h-10
+                    w-10
+                    sm:h-11
+                    sm:w-11
+                    lg:h-[46px]
+                    lg:w-[46px]
                     rounded-full
                     object-cover
                     border-2
@@ -195,15 +206,16 @@ export default function Navbar({
 
               </motion.button>
 
-              <div className="min-w-0">
+              <div className="min-w-0 max-w-[140px] sm:max-w-[190px] lg:max-w-[150px]">
 
                 <h2
                   className="
                     truncate
-                    text-[18px]
-                    sm:text-[24px]
+                    text-[13px]
+                    sm:text-[15px]
+                    lg:text-[14px]
                     leading-none
-                    font-bold
+                    font-semibold
                     tracking-tight
                     text-white
                   "
@@ -215,11 +227,12 @@ export default function Navbar({
                   className="
                     mt-1
                     truncate
-                    text-[9px]
-                    tracking-[0.12em]
+                    text-[8px]
+                    tracking-[0.14em]
                     text-gray-500
-                    sm:text-[12px]
-                    sm:tracking-[0.32em]
+                    sm:text-[9px]
+                    sm:tracking-[0.2em]
+                    lg:text-[8px]
                   "
                 >
                   Software Engineer
