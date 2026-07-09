@@ -57,7 +57,7 @@ function Contact() {
             <div className="flex items-center gap-4">
               <FaWhatsapp className="text-emerald-400 text-xl" />
               <a
-                href="https://wa.me/9786177761"
+                href="https://wa.me/919786177761"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-emerald-300"
