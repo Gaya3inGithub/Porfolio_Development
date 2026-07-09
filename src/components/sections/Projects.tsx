@@ -110,26 +110,28 @@ function Projects() {
 
   {/* ================= Project Banner ================= */}
 
-<div className="relative overflow-hidden bg-black/30 dark:bg-black/50">
-
-  <img
-    src={project.image}
-    alt={project.title}
-    className="
-      w-full
-      h-auto
-      aspect-video
-      object-cover
-      transition-transform
-      duration-700
-      sm:group-hover:scale-105
-    "
-  />
+<div className="relative overflow-hidden rounded-t-[30px] border-b border-white/10 bg-slate-100/90 dark:bg-slate-900/80">
+  <div className="aspect-[16/10] overflow-hidden sm:aspect-[16/9] lg:aspect-[4/3]">
+    <img
+      src={project.image}
+      alt={project.title}
+      loading="lazy"
+      decoding="async"
+      className="
+        h-full
+        w-full
+        object-cover
+        object-center
+        transition-transform
+        duration-700
+        sm:group-hover:scale-105
+      "
+    />
+  </div>
 
   {/* Gradient Overlay */}
 
-  <div className="absolute inset-0 bg-gradient-to-t from-[#17171f] via-transparent to-transparent dark:from-black/60 light:from-black/40" />
-
+  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/70 via-white/10 to-transparent dark:from-[#17171f]/90 dark:via-transparent dark:to-transparent" />
 </div>
 
 {/* ================= Card Content ================= */}
