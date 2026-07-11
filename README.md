@@ -1,5 +1,14 @@
 # React + TypeScript + Vite
 
+## Contact SMS delivery
+
+The contact form sends submissions directly to `CONTACT_SMS_TO` through a Vercel Function and Twilio. It does not open the visitor's SMS application.
+
+1. Import and deploy this project in Vercel. Vercel deploys the included `api/send-contact-sms.mjs` serverless function automatically.
+2. Create a Twilio account and an SMS-capable Twilio phone number.
+3. In Vercel, add the variables from `.env.example` under **Project Settings > Environment Variables**. Set `CONTACT_SMS_TO` to `+919786177761`.
+4. Redeploy the site. Keep the Twilio account SID and auth token private; do not put them in any `VITE_` variable or client-side file.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

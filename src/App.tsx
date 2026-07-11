@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 import Navbar from "./components/layout/Navbar";
 import Hero from "./components/sections/Hero";
@@ -12,11 +12,56 @@ import VerifiedLearning from "./components/sections/VerifiedLearning";
 import EngineeringCapabilities from "./components/sections/EngineeringCapabilities";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
+import SectionScrollControl from "./components/layout/SectionScrollControl";
 
 function App() {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
     return localStorage.getItem("theme") === "light" ? "light" : "dark";
   });
+
+  useLayoutEffect(() => {
+    const previousRestoration = window.history.scrollRestoration;
+    const previousScrollBehavior = document.documentElement.style.scrollBehavior;
+    let restoreScrollBehaviorFrame: number | undefined;
+
+    const resetToHome = () => {
+      document.documentElement.style.scrollBehavior = "auto";
+      window.scrollTo(0, 0);
+
+      if (restoreScrollBehaviorFrame) {
+        window.cancelAnimationFrame(restoreScrollBehaviorFrame);
+      }
+
+      restoreScrollBehaviorFrame = window.requestAnimationFrame(() => {
+        document.documentElement.style.scrollBehavior = previousScrollBehavior;
+      });
+    };
+
+    window.history.scrollRestoration = "manual";
+
+    if (window.location.hash !== "#home") {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}#home`,
+      );
+    }
+
+    resetToHome();
+
+    window.addEventListener("pageshow", resetToHome);
+    window.addEventListener("load", resetToHome, { once: true });
+
+    return () => {
+      if (restoreScrollBehaviorFrame) {
+        window.cancelAnimationFrame(restoreScrollBehaviorFrame);
+      }
+      window.removeEventListener("pageshow", resetToHome);
+      window.removeEventListener("load", resetToHome);
+      window.history.scrollRestoration = previousRestoration;
+      document.documentElement.style.scrollBehavior = previousScrollBehavior;
+    };
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -40,6 +85,8 @@ function App() {
         theme={theme}
         setTheme={setTheme}
       />
+
+      <SectionScrollControl />
 
       <Hero />
       <RecruiterSnapshot />

@@ -21,6 +21,30 @@ body {
   color: #f8fafc;
 }
 
+.contact-field {
+  color: #0f172a;
+  caret-color: #059669;
+}
+
+.dark .contact-field {
+  color: #f8fafc;
+  caret-color: #67e8f9;
+}
+
+.contact-field:-webkit-autofill,
+.contact-field:-webkit-autofill:hover,
+.contact-field:-webkit-autofill:focus {
+  -webkit-text-fill-color: #0f172a;
+  box-shadow: 0 0 0 1000px #ffffff inset;
+}
+
+.dark .contact-field:-webkit-autofill,
+.dark .contact-field:-webkit-autofill:hover,
+.dark .contact-field:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f8fafc;
+  box-shadow: 0 0 0 1000px #101827 inset;
+}
+
 .dark {
   color-scheme: dark;
 }

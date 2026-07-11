@@ -57,7 +57,7 @@ export const certificates: Certificate[] = [
     skills: ["ES6", "DOM", "Events", "Async JavaScript"],
     image: "/certificates/javascript.png",
     credential: "https://www.guvi.in/verify-certificate?id=8603u165923zQ57bk8",
-    theme: "green",
+    theme: "amber",
   },
   {
     id: 4,
@@ -65,7 +65,7 @@ export const certificates: Certificate[] = [
     platform: "Udemy",
     issuer: "Udemy",
     date: "February 2026",
-    duration: "Advanced",
+    duration: "Comprehensive",
     level: "Advanced",
     description:
       "Advanced Java Collections Framework including Generics, Streams and Lambda Expressions.",
@@ -96,14 +96,14 @@ export const certificates: Certificate[] = [
     platform: "HackerRank",
     issuer: "HackerRank",
     date: "September 2024",
-    duration: "Advanced",
+    duration: "Skill Assessment",
     level: "Advanced",
     description:
       "Advanced SQL certification demonstrating database querying, joins, aggregations and optimization.",
     skills: ["Joins", "Aggregations", "Optimization", "Complex Queries"],
     image: "/certificates/sql.png",
     credential: "https://www.hackerrank.com/certificates/4b4e1c6e1b45",
-    theme: "emerald",
+    theme: "rose",
   },
   {
     id: 7,
@@ -118,6 +118,6 @@ export const certificates: Certificate[] = [
     skills: ["Git", "GitHub", "Branching", "Merge"],
     image: "/certificates/github.png",
     credential: "https://drive.google.com/file/d/1FDwZ4rMi-ZC0-RWMcXr0OA0eKUlb7Z_B/view?usp=sharing",
-    theme: "green",
+    theme: "indigo",
   },
 ];

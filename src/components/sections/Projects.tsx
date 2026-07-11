@@ -111,7 +111,7 @@ function Projects() {
   {/* ================= Project Banner ================= */}
 
 <div className="relative overflow-hidden rounded-t-[30px] border-b border-white/10 bg-slate-100/90 dark:bg-slate-900/80">
-  <div className="aspect-[16/10] overflow-hidden sm:aspect-[16/9] lg:aspect-[4/3]">
+  <div className="aspect-[3/2] overflow-hidden">
     <img
       src={project.image}
       alt={project.title}
@@ -120,11 +120,10 @@ function Projects() {
       className="
         h-full
         w-full
-        object-cover
+        object-contain
         object-center
         transition-transform
         duration-700
-        sm:group-hover:scale-105
       "
     />
   </div>

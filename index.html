@@ -50,6 +50,13 @@
   <meta name="theme-color"
         content="#10b981" />
 
+  <script>
+    history.scrollRestoration = "manual";
+    history.replaceState(null, "", location.pathname + location.search + "#home");
+    scrollTo(0, 0);
+    addEventListener("pageshow", function () { scrollTo(0, 0); });
+  </script>
+
   <meta name="application-name"
         content="Gayathri Portfolio" />
 

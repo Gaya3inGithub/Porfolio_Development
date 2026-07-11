@@ -2,7 +2,7 @@ export const timeline = [
   {
     year: "2020 - 2024",
     title: "Bachelor of Engineering (CSE)",
-    company: "Rajalakshmi Institute of Technology",
+    company: "Dhanalakshmi Srinivasan Engineering College",
     description:
       "Completed Computer Science Engineering with focus on Java, Data Structures, Database Management Systems and Web Technologies.",
   },

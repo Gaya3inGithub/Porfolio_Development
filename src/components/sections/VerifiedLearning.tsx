@@ -2,6 +2,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState, type TouchEvent } from "react";
 import { certificates } from "../../data/certificates";
 
+const certificateThemeClasses: Record<string, string> = {
+  blue: "bg-blue-500",
+  purple: "bg-violet-500",
+  amber: "bg-amber-500",
+  orange: "bg-orange-500",
+  cyan: "bg-cyan-500",
+  rose: "bg-rose-500",
+  indigo: "bg-indigo-500",
+};
+
 function VerifiedLearning() {
   const [activeId, setActiveId] = useState<number>(certificates[0]?.id ?? 1);
   const touchStartX = useRef<number | null>(null);
@@ -104,17 +114,7 @@ function VerifiedLearning() {
                     <motion.span
                       layoutId={`indicator-${certificate.id}`}
                       className={`flex h-3.5 w-3.5 shrink-0 rounded-full ${
-                        certificate.theme === "blue"
-                          ? "bg-blue-500"
-                          : certificate.theme === "purple"
-                            ? "bg-violet-500"
-                            : certificate.theme === "green"
-                              ? "bg-emerald-500"
-                              : certificate.theme === "orange"
-                                ? "bg-orange-500"
-                                : certificate.theme === "cyan"
-                                  ? "bg-cyan-500"
-                                  : "bg-emerald-500"
+                        certificateThemeClasses[certificate.theme] ?? "bg-emerald-500"
                       }`}
                       transition={{ duration: 0.3 }}
                     />
