@@ -43,7 +43,7 @@ function SectionScrollControl() {
       <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-700 transition-transform duration-300 group-hover:scale-110 dark:text-emerald-300">
         {isBeforeServices ? <HiArrowDown size={18} /> : <HiArrowUp size={18} />}
       </span>
-      <span className="hidden sm:inline">{isBeforeServices ? "Services" : "Top"}</span>
+      <span className="hidden sm:inline">{isBeforeServices ? "Explore" : "Top"}</span>
     </motion.button>
   );
 }
