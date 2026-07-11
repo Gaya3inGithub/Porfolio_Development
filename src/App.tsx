@@ -20,48 +20,29 @@ function App() {
   });
 
   useLayoutEffect(() => {
-    const previousRestoration = window.history.scrollRestoration;
-    const previousScrollBehavior = document.documentElement.style.scrollBehavior;
-    let restoreScrollBehaviorFrame: number | undefined;
+  window.history.scrollRestoration = "manual";
 
-    const resetToHome = () => {
-      document.documentElement.style.scrollBehavior = "auto";
-      window.scrollTo(0, 0);
+  // Always start at the top
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "instant" as ScrollBehavior,
+  });
 
-      if (restoreScrollBehaviorFrame) {
-        window.cancelAnimationFrame(restoreScrollBehaviorFrame);
-      }
+  // Force another scroll after the page finishes rendering
+  const timer = setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant" as ScrollBehavior,
+    });
+  }, 0);
 
-      restoreScrollBehaviorFrame = window.requestAnimationFrame(() => {
-        document.documentElement.style.scrollBehavior = previousScrollBehavior;
-      });
-    };
-
-    window.history.scrollRestoration = "manual";
-
-    if (window.location.hash !== "#home") {
-      window.history.replaceState(
-        null,
-        "",
-        `${window.location.pathname}${window.location.search}#home`,
-      );
-    }
-
-    resetToHome();
-
-    window.addEventListener("pageshow", resetToHome);
-    window.addEventListener("load", resetToHome, { once: true });
-
-    return () => {
-      if (restoreScrollBehaviorFrame) {
-        window.cancelAnimationFrame(restoreScrollBehaviorFrame);
-      }
-      window.removeEventListener("pageshow", resetToHome);
-      window.removeEventListener("load", resetToHome);
-      window.history.scrollRestoration = previousRestoration;
-      document.documentElement.style.scrollBehavior = previousScrollBehavior;
-    };
-  }, []);
+  return () => {
+    clearTimeout(timer);
+    window.history.scrollRestoration = "auto";
+  };
+}, []);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
