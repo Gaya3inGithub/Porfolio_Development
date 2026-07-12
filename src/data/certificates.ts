@@ -131,7 +131,7 @@ export const certificates: Certificate[] = [
     description:
       "Completed the Google AI Professional Certificate, building practical skills for responsible AI use across research, communication, content creation, data analysis and app building.",
     skills: ["AI Fundamentals", "Research & Insights", "AI Communication", "Data Analysis"],
-    image: "/certificates/google-ai.svg",
+    image: "/certificates/google-ai.png",
     credential: "https://www.coursera.org/account/accomplishments/specialization/ROZ1150IAAUG",
     theme: "blue",
   },
