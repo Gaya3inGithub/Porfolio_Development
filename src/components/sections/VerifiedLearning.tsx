@@ -54,13 +54,15 @@ function VerifiedLearning() {
 
   useEffect(() => {
     const el = buttonRefs.current[activeId];
-    if (!el || !navRef.current) return;
+    const nav = navRef.current;
+    if (!el || !nav || nav.scrollWidth <= nav.clientWidth) return;
 
-    try {
-      el.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    } catch {
-      // ignore scroll errors
-    }
+    // Scroll only the horizontal certificate list. `scrollIntoView` can also
+    // scroll the page itself on mount, which was opening the site at this section.
+    nav.scrollTo({
+      left: el.offsetLeft - nav.clientWidth / 2 + el.offsetWidth / 2,
+      behavior: "smooth",
+    });
   }, [activeId]);
 
   return (

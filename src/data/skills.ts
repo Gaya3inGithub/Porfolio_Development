@@ -41,6 +41,8 @@ export const skills = [
       "Designing and managing relational databases.",
     items: [
       "MySQL",
+      "JPA",
+      "Hibernate",
     ],
   },
 
