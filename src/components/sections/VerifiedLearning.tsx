@@ -154,14 +154,14 @@ function VerifiedLearning() {
                       initial={{ opacity: 0, scale: 0.98 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.35 }}
-                      className="overflow-hidden rounded-[24px] border border-white/60 bg-slate-100/80 p-2 shadow-inner dark:border-white/10 dark:bg-slate-900/70"
+                      className="aspect-[4/3] w-full overflow-hidden rounded-[24px] border border-white/60 bg-slate-100/80 p-2 shadow-inner dark:border-white/10 dark:bg-slate-900/70"
                     >
                       <motion.img
                         src={activeCertificate.image}
                         alt={activeCertificate.title}
                         whileHover={{ scale: 1.015 }}
                         transition={{ duration: 0.25 }}
-                        className="h-56 w-full rounded-[18px] object-cover object-center sm:h-72"
+                        className="h-full w-full rounded-[18px] object-contain object-center"
                       />
                     </motion.div>
 

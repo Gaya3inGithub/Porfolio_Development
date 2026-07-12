@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Navbar from "./components/layout/Navbar";
 import Hero from "./components/sections/Hero";
@@ -18,31 +18,6 @@ function App() {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
     return localStorage.getItem("theme") === "light" ? "light" : "dark";
   });
-
-  useLayoutEffect(() => {
-  window.history.scrollRestoration = "manual";
-
-  // Always start at the top
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "instant" as ScrollBehavior,
-  });
-
-  // Force another scroll after the page finishes rendering
-  const timer = setTimeout(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant" as ScrollBehavior,
-    });
-  }, 0);
-
-  return () => {
-    clearTimeout(timer);
-    window.history.scrollRestoration = "auto";
-  };
-}, []);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);

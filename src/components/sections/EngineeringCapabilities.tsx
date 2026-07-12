@@ -60,13 +60,15 @@ function EngineeringCapabilities() {
 
   useEffect(() => {
     const activeButton = buttonRefs.current[activeId];
+    const nav = navRef.current;
 
-    if (!activeButton || !navRef.current) return;
+    if (!activeButton || !nav || nav.scrollWidth <= nav.clientWidth) return;
 
-    activeButton.scrollIntoView({
+    // Keep the selected item visible in the horizontal list without moving
+    // the document to this section when the component mounts.
+    nav.scrollTo({
+      left: activeButton.offsetLeft - nav.clientWidth / 2 + activeButton.offsetWidth / 2,
       behavior: "smooth",
-      block: "nearest",
-      inline: "center",
     });
   }, [activeId]);
 
