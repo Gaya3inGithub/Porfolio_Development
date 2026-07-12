@@ -94,7 +94,7 @@ function VerifiedLearning() {
         className="overflow-hidden rounded-[32px] border border-white/50 bg-white/70 p-4 shadow-[0_25px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl dark:border-white/10 dark:bg-[#0f172a]/70 dark:shadow-[0_25px_80px_rgba(2,6,23,0.35)] sm:p-6 lg:p-8"
       >
         <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
-          <div className="w-full lg:w-[30%] lg:shrink-0">
+          <div className="w-full lg:w-[40%] lg:shrink-0">
             <div ref={navRef} className="flex justify-start gap-3 overflow-x-auto pb-2 lg:flex-col lg:justify-center lg:gap-3 lg:overflow-visible lg:pb-0">
               {certificates.map((certificate) => {
                 const isActive = certificate.id === activeId;
@@ -134,7 +134,7 @@ function VerifiedLearning() {
             </div>
           </div>
 
-          <div className="w-full lg:w-[70%]">
+          <div className="w-full lg:w-[60%]">
             <div
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}

@@ -190,7 +190,8 @@ lg:grid-cols-[1.05fr_.95fr]
     sm:text-5xl
     sm:tracking-[-0.03em]
     md:text-6xl
-    lg:text-7xl
+    lg:text-6xl
+    xl:text-7xl
     2xl:text-8xl
   "
 >
@@ -198,12 +199,13 @@ lg:grid-cols-[1.05fr_.95fr]
 
   <span
     className="
-      block
-      w-fit
-      max-w-full
+      inline-block
+      max-w-none
       overflow-visible
       pb-1
-      pr-2
+      pr-4
+
+      lg:text-[clamp(3rem,5vw,4.5rem)]
       bg-gradient-to-r
       from-emerald-400
       via-cyan-300
