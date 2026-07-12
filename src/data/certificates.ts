@@ -120,4 +120,19 @@ export const certificates: Certificate[] = [
     credential: "https://drive.google.com/file/d/1FDwZ4rMi-ZC0-RWMcXr0OA0eKUlb7Z_B/view?usp=sharing",
     theme: "indigo",
   },
+  {
+    id: 8,
+    title: "Google AI",
+    platform: "Coursera",
+    issuer: "Google Career Certificates",
+    date: "July 2026",
+    duration: "7 Courses",
+    level: "Professional Certificate",
+    description:
+      "Completed the Google AI Professional Certificate, building practical skills for responsible AI use across research, communication, content creation, data analysis and app building.",
+    skills: ["AI Fundamentals", "Research & Insights", "AI Communication", "Data Analysis"],
+    image: "/certificates/google-ai.svg",
+    credential: "https://www.coursera.org/account/accomplishments/specialization/ROZ1150IAAUG",
+    theme: "blue",
+  },
 ];

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title description">
+  <title id="title">Google AI Professional Certificate</title>
+  <desc id="description">Google AI Professional Certificate awarded to Gayathri T on July 11, 2026.</desc>
+  <rect width="1200" height="900" fill="#ffffff"/>
+  <rect width="250" height="900" fill="#eaf0f5"/>
+  <path d="M0 0h110v900H0z" fill="#c7d5df"/>
+  <path d="M110 0h70v360l-35 42-35-42z" fill="#516875"/>
+  <circle cx="125" cy="130" r="70" fill="#fff" stroke="#283d48" stroke-width="6"/>
+  <circle cx="125" cy="130" r="55" fill="none" stroke="#283d48" stroke-width="2" stroke-dasharray="3 5"/>
+  <text x="125" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#1d2e38">coursera</text>
+  <text x="125" y="154" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#1d2e38">PROFESSIONAL CERTIFICATE</text>
+  <rect x="0" y="250" width="250" height="38" fill="#36505e"/>
+  <text x="125" y="276" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#fff">7 Courses</text>
+  <g font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#1f2933">
+    <text x="46" y="425">AI Fundamentals</text>
+    <text x="46" y="462">AI for Informing and</text><text x="46" y="480">Planning</text>
+    <text x="46" y="517">AI for Research and Insights</text>
+    <text x="46" y="554">AI for Writing and</text><text x="46" y="572">Communication</text>
+    <text x="46" y="609">AI for Content Creation</text>
+    <text x="46" y="646">AI for Data Analysis</text>
+    <text x="46" y="683">AI for App Building</text>
+  </g>
+  <rect x="300" y="55" width="145" height="145" fill="#fff" stroke="#e5e7eb" stroke-width="5"/>
+  <text x="372" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="116" font-weight="700" fill="#4285f4">G</text>
+  <text x="470" y="290" font-family="Arial, sans-serif" font-size="20" fill="#4b5563">Jul 11, 2026</text>
+  <text x="470" y="348" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#111827">GAYATHRI T</text>
+  <text x="470" y="390" font-family="Arial, sans-serif" font-size="18" fill="#374151">has successfully completed the online Professional Certificate</text>
+  <text x="470" y="455" font-family="Arial, sans-serif" font-size="45" font-weight="700" fill="#111827">Google AI</text>
+  <g font-family="Arial, sans-serif" font-size="19" fill="#374151">
+    <text x="470" y="505">Those who earn the Google AI Professional Certificate are fluent in AI,</text>
+    <text x="470" y="532">and have completed 7 courses demonstrating their ability to apply AI</text>
+    <text x="470" y="559">to skills where AI is transforming work. Brainstorming, Research,</text>
+    <text x="470" y="586">Communication, Content Creation, Data Analysis, and coding. They</text>
+    <text x="470" y="613">have built a portfolio of 20+ artifacts using AI, and will be coded a</text>
+    <text x="470" y="640">custom AI solution. They prompt effectively, evaluate outputs, and</text>
+    <text x="470" y="667">leverage AI tools responsibly to solve real workplace challenges.</text>
+  </g>
+  <path d="M865 360c95-130 220-30 160 75 120-70 180 90 45 135 90 90-25 180-115 90-30 135-185 65-95-50-175-120-60-175-55-100 60-170 155-100z" fill="none" stroke="#c7d8ee" stroke-width="3" opacity=".8"/>
+  <path d="M880 380c75-90 180-15 130 70 105-55 150 75 40 110 70 75-20 145-95 75-25 105-145 55-80-35-110-35-140-120-35-145-35-80 65-130 145-85z" fill="none" stroke="#d9e5f4" stroke-width="3" opacity=".8"/>
+  <line x1="300" y1="800" x2="1130" y2="800" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="300" y="835" font-family="Arial, sans-serif" font-size="11" fill="#4b5563">This certificate attests to the learner's completion of an online program delivered via Coursera.</text>
+  <text x="930" y="822" font-family="Arial, sans-serif" font-size="13" fill="#374151">Verify this certificate at:</text>
+  <text x="930" y="845" font-family="Arial, sans-serif" font-size="12" fill="#2563eb">coursera.org/verify/professional-cert/ROZ1150IAAUG</text>
+</svg>
