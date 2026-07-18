@@ -147,7 +147,7 @@ export const certificates: Certificate[] = [
       "Completed the Java FullStack Developer specialization, covering Java fundamentals, full-stack development and backend data structures.",
     skills: ["Java Fundamentals", "Full-Stack Development", "Spring & Spring Boot", "Data Structures"],
     image: "/certificates/javafs.png",
-    credential: "https://www.coursera.org/verify/specialization/6S3ST9RST9RB",
+    credential: "https://www.coursera.org/account/accomplishments/specialization/6S3ST9RXXBKD",
     theme: "orange",
   },
 ];
